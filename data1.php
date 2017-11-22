@@ -390,19 +390,19 @@ foreach ($data as $monitor){
 	echo '<div class="text">';
 	if ($monitor['rating'] >= 4.5) {
 		echo '<div class="img">';
-		echo '<img src="'. $monitor['mainPhoto']['url'].'" width="280">';
+		echo '<img src="'. htmlspecialchars($monitor['mainPhoto']['url']).'" width="280">';
 		echo '</div>';
 	}
 		echo "<h2><b> Общие характеристики: </b></h2>". "<p>". 
-		'Монитор: '  .htmlspecialchars ($monitor['name']). 'id '. htmlspecialchars ($monitor['id']). "<p>".
+		'Монитор: '  .htmlspecialchars($monitor['name']). 'id '. htmlspecialchars ($monitor['id']). "<p>".
 		' Рейтинг: ' .htmlspecialchars($monitor['rating']). "<p>". 
-		'Характеристики: ' .htmlspecialchars ($monitor['description']). "<p>" .
+		'Характеристики: ' .htmlspecialchars($monitor['description']). "<p>" .
 		' Код категории: ' .htmlspecialchars( $monitor['categoryId']). "<p>". 
 		'Стоимость: '.number_format($monitor['prices']['amount'],2,',',' '). " ".htmlspecialchars( $monitor['prices']['curName']).
-		"<p>". 'Производитель: '.htmlspecialchars ($monitor['vendor']).
+		"<p>". 'Производитель: '.htmlspecialchars($monitor['vendor']).
 		"<p>" .'Количество: '.htmlspecialchars( $monitor['gradeCount']).
 		"<p> Ссылка на Yandex Market:" .'<a href='.htmlspecialchars($monitor['link'])."'>" ;
-		echo $monitor['link'] ;
+		echo htmlspecialchars($monitor['link']);
 		echo "</a>";
 		echo '</div>';
 	}
